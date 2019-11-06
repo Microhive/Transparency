@@ -15,7 +15,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Globalization;
 
-namespace Ting_Fetch
+namespace TingFetch
 {
     public static class FetchVotes
     {
@@ -82,21 +82,21 @@ namespace Ting_Fetch
             voteResult.BlankVotes = new List<string>();
             voteResult.AbsentVotes = new List<string>();
 
-            int counter = finalLines.FindIndex(x => x.Contains("JA:"));
+            int counter = finalLines.FindIndex(x => x.Contains("JA:")) + 1;
 
             for (int i = counter; i < (counter + voteResult.TotalYes); i++)
             {
                 voteResult.YesVotes.Add(finalLines[i].Substring(finalLines[i].IndexOf(" ") + 1));
             }
 
-            counter = finalLines.FindIndex(x => x.Contains("NEI:"));
+            counter = finalLines.FindIndex(x => x.Contains("NEI:")) + 1;
 
             for (int i = counter; i < (counter + voteResult.TotalNo); i++)
             {
                 voteResult.NoVotes.Add(finalLines[i].Substring(finalLines[i].IndexOf(" ") + 1));
             }
 
-            counter = finalLines.FindIndex(x => x.Contains("BLANK:"));
+            counter = finalLines.FindIndex(x => x.Contains("BLANK:")) + 1;
 
             for (int i = counter; i < (counter + voteResult.TotalBlank); i++)
             {
