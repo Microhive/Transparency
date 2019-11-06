@@ -12,7 +12,6 @@ namespace WebAPI.Model
         public DbSet<MemberOfParliament> MemberOfParliaments { get; set; }
         
         public DbSet<Person> Persons { get; set; }
-
         
         public DbSet<Proposal> Proposals { get; set; }
 
